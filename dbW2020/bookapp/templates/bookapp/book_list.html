@@ -4,6 +4,16 @@
 	<title>Bookapp</title>
 </head>
 <body>
-	<h1>HELLO WORLD!</h1>
+<div>
+	<h1>Books</h1>
+{% for book in books %}
+	<p>Title: {{ book.title }}</p>
+	<p>Genre: {{ book.genre.genre }}</p>
+	<p>Price: {{ book.price }}</p>
+	<p>Stock: {{ book.copies }}</p>
+{% endfor %}
+
+
+</div>
 </body>
 </html>
