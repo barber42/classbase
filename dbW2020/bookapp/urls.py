@@ -3,4 +3,7 @@ from . import views
 
 urlpatterns = [
 	path('', views.book_list, name='book_list'),
+	path('book/new/', views.book_new, name='book_new'),
+	path('author/new', views.author_new, name='author_new'),
+	path('transaction/new', views.transaction_new, name='transaction_new'),
 ]

@@ -1,59 +1,16 @@
-<!DOCTYPE html>
 
-{% load static %}
+{% extends 'bookapp/base.html' %}
 
-<html lang="en">
-<head>
-	<title>Bookapp</title>
-	
 
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-	<link rel="stylesheet" href="{% static 'css/book.css' %}">
-
-</head>
-<body>
-
-<div class="page-header" id="header">
-	<h1><a href="/">Book Database</a></h1> 
-	<button>BUTTON</button>
-	<button>BUTTON 2</button>
-	<button>BUTTON 3</button>
-</div>
-
-<div class="content container">
- <div class="row">
-  <div class="col-md-8">
-	
-	<h1>Books</h1>
-
-	{% for book in books %}
-	 <div class="book">
-		<p>Title: {{ book.title }}</p>
-		<p>Author(s): {% for author in book.author.all %} {{ author }}; {% endfor %}</p>
-		<p>Genre: {{ book.genre.genre }}</p>
-		<p>Price: {{ book.price }}</p>
-	 	<p>Stock: {{ book.copies }}</p>
-	 </div>
-	{% endfor %}
-  </div>
+{% block content %}
+{% for book in books %}
+ <div class="book">
+	<p>Title: {{ book.title }}</p>
+	<p>Author(s): {% for author in book.author.all %} {{ author }}; {% endfor %}</p>
+	<p>Genre: {{ book.genre.genre }}</p>
+	<p>Price: {{ book.price }}</p>
+ 	<p>Stock: {{ book.copies }}</p>
  </div>
-</div>
-</body>
-
-<script>
-	window.onscroll = function() {headStick()};
-
-	var header = document.getElementById("header");
-	var sticky = header.offsetTop;
-
-	function headStick() {
-		if (window.pageYOffset >sticky){
-			header.classList.add("sticky");
-		}else{
-			header.classList.remove("sticky");
-		}
-	}
-</script>
-
-</html>
+		{{ linebreaksbr }}
+{% endfor %}
+{% endblock %}

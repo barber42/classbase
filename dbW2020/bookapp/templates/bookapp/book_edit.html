@@ -1,0 +1,12 @@
+{% extends 'bookapp/base.html' %}
+
+{% block content %}
+
+	<h2>New Book</h2>
+	<a href="{% url 'author_new' %}" class="top-menu">Add New Author to List</a>
+	<form method="POST" class="book-form">{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit" class="save btn btn-default">Save</button>
+	</form>
+	<p>Note: Hold CTL to select multiple authors.</p>
+{% endblock %}

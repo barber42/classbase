@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html lang="en">
+<head>
+	<title>Bookapp</title>
+	
+
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="{% static 'css/book.css' %}">
+
+</head>
+<body>
+ <div class="page-header">
+	<h1><a href="/">Book Database</a></h1>
+	<a href="{% url 'book_new' %}" class="top-menu" style="font-family='Helvetica'; color: white; font-size: 24pt;">Add Book</a>
+	<a href="{% url 'transaction_new' %}" class="top-menu" style="font-family='Helvetica'; color: white; font-size: 24pt;">Add Transaction</a>
+ </div>
+ <div class="content container">
+  <div class="row">
+   <div class="col-md-8">
+
+   	{% block content %}
+        {% endblock %}
+
+   </div>
+  </div>
+ </div>
+</body>
+
+<script>
+	window.onscroll = function() {headStick()};
+
+	var header = document.getElementById("header");
+	var sticky = header.offsetTop;
+
+	function headStick() {
+		if (window.pageYOffset >sticky){
+			header.classList.add("sticky");
+		}else{
+			header.classList.remove("sticky");
+		}
+	}
+</script>
+
+</html>
