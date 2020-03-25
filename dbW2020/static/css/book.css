@@ -41,3 +41,12 @@ h1, h2, h3, h4 {
 .sticky + .content {
 	padding-top: 102px;
 }
+
+.big-white {
+	color: white;
+}
+
+.top-menu {
+	margin-right: 20px;
+	margin-left: 20px; 
+}

@@ -14,8 +14,19 @@
 </head>
 <body>
  <div class="page-header">
+
+
+	{% if user.is_authenticated %}
+		<p> Hello, {{ user.username }} <small> (<a href="{%url 'logout' %}">Logout</a>) </small></p>
+	{% else %}
+		<a href="{% url 'login' %}"><span class="glyphicon glyphicon-lock" style="color: white;"></span></a>
+	{% endif %}
+	
 	<h1><a href="/">Book Database</a></h1>
+	
+	<a href="{% url 'book_list' %}" class="top-menu" style="font-family='Helvetica'; color: white; font-size: 24pt;">View Books</a>
 	<a href="{% url 'book_new' %}" class="top-menu" style="font-family='Helvetica'; color: white; font-size: 24pt;">Add Book</a>
+	<a href="{% url 'transaction_list' %}" class="top-menu" style="font-family='Helvetica'; color: white; font-size: 24pt;">View Transactions</a>
 	<a href="{% url 'transaction_new' %}" class="top-menu" style="font-family='Helvetica'; color: white; font-size: 24pt;">Add Transaction</a>
  </div>
  <div class="content container">

@@ -1,0 +1,15 @@
+
+{% extends 'bookapp/base.html' %}
+
+
+{% block content %}
+{% for transaction in transactions %}
+<hr> 
+<div class="transaction">
+	<p>Book(s): {% for book in transaction.books.all %} {{ book.title }} {{ book.price }}; {% endfor %}</p>
+	<p>Total: {{ transaction.total }}</p>
+ 	<p>Date: {{ transaction.date }}</p>
+ </div>
+		{{ linebreaksbr }}
+{% endfor %}
+{% endblock %}
