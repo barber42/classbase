@@ -48,7 +48,7 @@ def transaction_new(request):
 			transaction = form.save(commit=False)
 			
 			total = Decimal.from_float(0.00)
-			uname = request.user
+			uname= request.user
 			transaction.total = total
 			transaction.userid = uname 	
 			
@@ -63,7 +63,7 @@ def transaction_new(request):
 			transaction.total = total
 			transaction.save()
 			
-			return redirect('/')	
+			return redirect('transaction_list')	
 	else:
 		form = TransactionForm()			
 	return render(request, 'bookapp/transaction_edit.html', {'form': form})
